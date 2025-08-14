@@ -1,0 +1,8 @@
+name: ReportWebhook
+version: 1.0.0
+main: com.tuo.plugin.ReportWebhook
+api-version: "1.21"
+commands:
+  report:
+    description: Segnala un giocatore allo staff
+    usage: /report <giocatore> <motivo>
