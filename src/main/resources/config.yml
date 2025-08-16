@@ -1,1 +1,2 @@
-webhook-url: "https://discord.com/api/webhooks/ID/TOKEN"
+webhook-url: "INSERISCI_URL_WEBHOOK"
+embed-color: "#FFA500"

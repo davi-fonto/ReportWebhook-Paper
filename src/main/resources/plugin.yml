@@ -1,8 +1,22 @@
 name: ReportWebhook
-version: 1.0.0
-main: com.tuo.plugin.ReportWebhook
+version: 1.2.0
+main: com.tuo.reportwebhook.ReportWebhookPlugin
 api-version: "1.21"
+load: STARTUP
 commands:
   report:
-    description: Segnala un giocatore allo staff
+    description: Segnala un giocatore
     usage: /report <giocatore> <motivo>
+  reports:
+    description: Mostra i tuoi report
+    usage: /reports
+  staffreports:
+    description: Gestisci i report (confirm/decline)
+    usage: /staffreports [id] <confirm|decline>
+permissions:
+  report.use:
+    description: Permette di usare /report
+    default: true
+  report.staff:
+    description: Permette di usare /staffreports
+    default: op
