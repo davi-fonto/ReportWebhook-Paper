@@ -1,7 +1,10 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # ReportWebhook-Paper
  A minecraft paper plugin to report players directly to a discord webhook!
 =======
+=======
+>>>>>>> Stashed changes
 # ReportWebhookPaperDB (Paper 1.21.8)
 
 Plugin completo con:
@@ -40,4 +43,7 @@ database:
 mvn clean package
 ```
 Troverai il jar in `target/ReportWebhookPaperDB.jar`.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

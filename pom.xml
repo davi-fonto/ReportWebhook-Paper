@@ -4,6 +4,7 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   <groupId>com.tuo</groupId>
   <artifactId>report-webhook</artifactId>
@@ -11,10 +12,15 @@
   <name>ReportWebhook</name>
 
 =======
+=======
+>>>>>>> Stashed changes
   <groupId>com.example</groupId>
   <artifactId>ReportWebhookPaperDB</artifactId>
   <version>1.1.0</version>
   <name>ReportWebhookPaperDB</name>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   <properties>
     <maven.compiler.release>21</maven.compiler.release>
@@ -37,12 +43,15 @@
       <scope>provided</scope>
     </dependency>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>2.10.1</version>
 =======
+=======
+>>>>>>> Stashed changes
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
@@ -57,13 +66,20 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.33</version>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     </dependency>
   </dependencies>
 
   <build>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <finalName>ReportWebhook</finalName>
+=======
+    <finalName>ReportWebhookPaperDB</finalName>
+>>>>>>> Stashed changes
 =======
     <finalName>ReportWebhookPaperDB</finalName>
 >>>>>>> Stashed changes

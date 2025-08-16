@@ -13,4 +13,7 @@ database:
   name: "reports"     # usato solo per mysql
   user: "root"        # usato solo per mysql
   password: "password"  # usato solo per mysql
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
