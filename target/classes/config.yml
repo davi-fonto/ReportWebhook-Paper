@@ -1,0 +1,12 @@
+webhook-url: "INSERISCI_URL_WEBHOOK"
+embed-color: "#FFA500"
+
+database:
+  enabled: true
+  type: "sqlite"   # "sqlite" oppure "mysql"
+  file: "reports.db"  # usato solo per sqlite
+  host: "localhost"   # usato solo per mysql
+  port: 3306          # usato solo per mysql
+  name: "reports"     # usato solo per mysql
+  user: "root"        # usato solo per mysql
+  password: "password"  # usato solo per mysql

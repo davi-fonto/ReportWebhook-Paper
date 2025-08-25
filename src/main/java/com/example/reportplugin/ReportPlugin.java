@@ -156,23 +156,40 @@ public class ReportPlugin extends JavaPlugin implements Listener {
 
     // ===== Commands =====
     private boolean onReportCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Solo i giocatori possono usare questo comando.");
+        // Allow both players and console to report. Console reporter will be saved as "Server" with uuid "SERVER".
+        if (sender instanceof Player) {
+            Player p = (Player) sender;
+            if (!p.hasPermission("report.use")) {
+                p.sendMessage(ChatColor.RED + "Non hai il permesso.");
+                return true;
+            }
+            if (args.length < 2) {
+                p.sendMessage(ChatColor.RED + "Uso corretto: /report <giocatore> <motivo>");
+                return true;
+            }
+            String target = args[0];
+            String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
+            dispatchReport(p, target, reason);
+            return true;
+        } else {
+            // Console or other non-player sender
+            if (!sender.hasPermission("report.use")) {
+                sender.sendMessage(ChatColor.RED + "Solo i giocatori possono usare questo comando.");
+                return true;
+            }
+            if (args.length < 2) {
+                sender.sendMessage(ChatColor.RED + "Uso corretto: /report <giocatore> <motivo>");
+                return true;
+            }
+            String target = args[0];
+            String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
+            long id = insertReport("SERVER", "Server", target, reason);
+            sendDiscordEmbed(escapeUnderscore(target), escapeUnderscore("Server"), escapeUnderscore(reason));
+            sender.sendMessage(ChatColor.GREEN + "Report #" + id + " inviato su " + target + " per: " + reason);
+            String notify = ChatColor.GOLD + "[REPORT] #" + id + " Server \u2192 " + target + " : " + reason;
+            Bukkit.getOnlinePlayers().stream().filter(pl -> pl.hasPermission("report.staff")).forEach(pl -> pl.sendMessage(notify));
             return true;
         }
-        Player p = (Player) sender;
-        if (!p.hasPermission("report.use")) {
-            p.sendMessage(ChatColor.RED + "Non hai il permesso.");
-            return true;
-        }
-        if (args.length < 2) {
-            p.sendMessage(ChatColor.RED + "Uso corretto: /report <giocatore> <motivo>");
-            return true;
-        }
-        String target = args[0];
-        String reason = String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length));
-        dispatchReport(p, target, reason);
-        return true;
     }
 
     private boolean onReportsCommand(CommandSender sender, Command cmd, String label, String[] args) {
