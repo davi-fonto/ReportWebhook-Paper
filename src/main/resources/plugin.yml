@@ -11,7 +11,7 @@ commands:
     usage: /reports
   staffreports:
     description: Gestisci i report
-    usage: /staffreports [id] <confirm|decline>
+  usage: /staffreports [id] <confirm|decline|remove>
 permissions:
   report.use:
     description: Permette di usare /report e /reports

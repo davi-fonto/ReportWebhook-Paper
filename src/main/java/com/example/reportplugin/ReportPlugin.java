@@ -230,12 +230,17 @@ public class ReportPlugin extends JavaPlugin implements Listener {
                 updateStatus(id, "RIFIUTATO");
                 sender.sendMessage(ChatColor.RED + "Report #" + id + " rifiutato. Sarà eliminato in 48h.");
                 return true;
+            } else if ("remove".equals(action) || "delete".equals(action)) {
+                // Immediate deletion by staff
+                deleteReport(id);
+                sender.sendMessage(ChatColor.GREEN + "Report #" + id + " eliminato manualmente.");
+                return true;
             } else {
-                sender.sendMessage(ChatColor.RED + "Uso: /staffreports <id> <confirm|decline>");
+        sender.sendMessage(ChatColor.RED + "Uso: /staffreports <id> <confirm|decline|remove>");
                 return true;
             }
         }
-        sender.sendMessage(ChatColor.RED + "Uso: /staffreports [id] <confirm|decline>");
+    sender.sendMessage(ChatColor.RED + "Uso: /staffreports [id] <confirm|decline|remove>");
         return true;
     }
 
@@ -358,6 +363,17 @@ public class ReportPlugin extends JavaPlugin implements Listener {
         String reportedName;
         String reason;
         String status;
+    }
+
+    private void deleteReport(long id) {
+        String sql = "DELETE FROM reports WHERE id = ?";
+        try (Connection c = dataSource.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            getLogger().severe("Errore delete report: " + e.getMessage());
+        }
     }
 
     // ====== Discord webhook ======

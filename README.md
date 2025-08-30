@@ -5,6 +5,7 @@ Plugin completo con:
 - Escape `_` -> `\_` per nomi/motivi su Discord.
 - Blocco self-report.
 - `/reports` (solo tuoi), `/staffreports` (tutti; confirm/decline).
+ - `/reports` (solo tuoi), `/staffreports` (tutti; confirm/decline/remove).
 - Eliminazione automatica **dopo 48h** dei report **CONFERMATI** e **RIFIUTATI** (i **RICEVUTI** restano).
 - Storage su **SQLite** (default) o **MySQL** configurabile.
 - Override del comando `/report` con listener a priorità **LOWEST**.
@@ -29,7 +30,7 @@ database:
 ## Comandi e permessi
 - `/report <giocatore> <motivo>` → `report.use`
 - `/reports` → `report.use`
-- `/staffreports [id] <confirm|decline>` → `report.staff`
+- `/staffreports [id] <confirm|decline|remove>` → `report.staff`
 
 ## Compilazione
 ```bash
