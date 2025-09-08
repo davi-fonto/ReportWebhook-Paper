@@ -31,9 +31,3 @@ database:
 - `/report <giocatore> <motivo>` → `report.use`
 - `/reports` → `report.use`
 - `/staffreports [id] <confirm|decline|remove>` → `report.staff`
-
-## Compilazione
-```bash
-mvn clean package
-```
-Troverai il jar in `target/ReportWebhookPaperDB.jar`.
